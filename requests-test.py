@@ -1,11 +1,9 @@
-import urllib2
+import requests
 
 ID = 'daperry'
 
 url = 'https://sites-uat.ualberta.ca/~'
 
-req = urllib2.Request(url+ID)
+req = requests.get(url+ID)
 
-handler = urllib2.urlopen(req)
-
-print handler.getcode()
+print ID + " | " + str(req.status_code) + " | " + req.headers['content-type']
